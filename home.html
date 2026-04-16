@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Computech Skills Academy </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="shortcut icon" href="csa logo.png" type="image/x-icon">
+  <style>
+    body {
+      background-color: #fff8e8;
+    }
+      .RPPANSARIji{
+       color: #990d35;
+       font-size:large;
+       font-weight: 800;
+    } 
+             /* HEADER */
+  .header-wrapper {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background-color: #fff8e8;
+    color: #990d35;
+    z-index: 1050;
+    padding: 10px 20px;
+    height: 140px;
+  }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-img {
+    width:90px;
+  
+  }
+
+   .header-text {
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1.2;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  /* TOGGLE BUTTON */
+  .sidebar-toggle {
+    background: white;
+    color: #990d35;
+    border: none;
+    font-size: 24px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  /* SIDEBAR DESKTOP */
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    right: -220px;
+    width: 220px;
+    height: calc(100vh - 60px);
+    background-color: #990d35;
+    color: white;
+    padding-top: 10px;
+    transition: right 0.3s ease;
+    z-index: 1040;
+    overflow-y: auto;
+  }
+
+  .sidebar.active {
+    right: 0;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .sidebar ul li a {
+    display: block;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+  }
+
+  .sidebar ul li a:hover {
+    background-color: #fff8e8;
+    color: #990d35;
+  }
+
+  /* BACKDROP */
+  .menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 1030;
+    display: none;
+  }
+
+  .menu-backdrop.active {
+    display: block;
+  }
+
+  /* MOBILE STYLES */
+  @media (max-width: 575.98px) {
+    .sidebar {
+      position: absolute;
+      top: 60px; /* header height */
+      left: 0;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      background-color: #990d35;
+      padding-top: 0;
+      transition: max-height 0.3s ease;
+      z-index: 1040; /* under header (1050) */
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    .sidebar.active {
+      max-height: 500px; /* adjust if needed */
+      padding-top: 80px;
+    }
+  }
+
+@media (max-width: 575.98px) {
+  .sidebar-img-container {
+    display: block;
+    margin-top: 0px;
+    /* padding: 0 15px 15px; */
+    text-align: center;
+  }
+
+  .sidebar-blur-img {
+    height: 45vh;
+    width: 98vw;
+    border-radius: 5px;
+    filter: blur(1px);
+    opacity: 0.85;
+    transition: 0.3s ease;
+  }
+
+  .sidebar-blur-img:hover {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+  @media (min-width: 576px) {
+  .sidebar-img-container {
+    margin-top: 5px;
+    /* padding: 0 15px 15px; */
+    text-align: center;
+    object-fit: cover;
+  }
+
+  .sidebar-blur-img {
+    height: 45vh;
+    width: 35vw;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    filter: blur(1px);
+    opacity: 0.85;
+    transition: 0.3s ease;
+  }
+
+  .sidebar-blur-img:hover {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  .sidebar.active{
+     padding-top: 80px;
+  }
+}
+.options{
+        font-size:20px;
+        color:#fff8e8;
+        top: 0;
+       }
+ .options:hover{
+         text-shadow: 2px 2px 2px  #D4AF37 ;
+ }      
+
+ /* HEADER end */
+    
+    /* Hero Section */
+    .hero-section {
+      /* background: linear-gradient(rgba(153, 13, 53, 0.8), rgba(153, 13, 53, 0.9)), url('computech.jpg'); */
+      background-color: #990d35;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 120px 20px 80px;
+      text-align: center;
+      margin-top: 90px;
+    }
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      font-family: serif;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero-subtitle {
+      font-size: 1.3rem;
+      font-family: sans-serif;
+      color: #fff8e8;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-btn {
+      background-color: #fff8e8;
+      color: #990d35;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-family: serif;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      background-color: #fff;
+      color: #990d35;
+    }
+    
+    /* About Section */
+    .about-section {
+      padding: 80px 0;
+      background-color: #fff;
+    }
+    .section-title {
+      color: #990d35;
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-family: serif;
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: #D4AF37;
+      margin: 15px auto;
+    }
+    .about-text {
+      font-family: sans-serif;
+      color: #990d35;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+    .about-img {
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .about-img:hover {
+      transform: scale(1.03);
+    }
+    .lrn_more{
+      font-family: serif;
+      transition: all 0.3s ease;
+    }
+    .lrn_more:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      background-color: #5a061e;
+      color:white;
+    }
+    /* Courses Section */
+    .courses-section {
+      padding: 80px 0;
+      background-color: #fff8e8;
+    }
+    .course-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      margin-bottom: 30px;
+      border: 2px solid #990d35;
+    }
+    .course-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(153, 13, 53, 0.2);
+    }
+    .course-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .course-body {
+      padding: 20px;
+    }
+    .course-title {
+      color: #990d35;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .course-btn {
+      background-color: #990d35;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    .course-btn:hover {
+      background-color: #7a0a2c;
+      color: white;
+    }
+    
+    /* Features Section */
+    .features-section {
+      padding: 80px 0;
+      background-color: #fff;
+    }
+    .feature-box {
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 10px;
+      background-color: #fff8e8;
+      transition: all 0.3s ease;
+      margin-bottom: 30px;
+      border: 1px solid #990d35;
+    }
+    .feature-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(153, 13, 53, 0.1);
+    }
+    .feature-icon {
+      font-size: 3rem;
+      color: #990d35;
+      margin-bottom: 20px;
+    }
+    .feature-title {
+      color: #990d35;
+      font-weight: 600;
+      font-family: serif;
+      margin-bottom: 15px;
+    }
+   .default-text{
+      font-family: sans-serif;
+      color: #990d35;
+    }
+          @media (max-width:1200px) and (min-width:992px){
+      .Features_4{
+        padding-bottom: 65px;
+      } 
+    }
+        @media (max-width:1400px) and (min-width:1200px){
+      .Features_4{
+        padding-bottom: 90px;
+      } 
+       .Features_3{
+        padding-bottom: 65px;
+       }
+    }
+    
+    /* Testimonials */
+    .testimonial-section {
+      padding: 80px 0;
+      background-color: #990d35;
+      color: white;
+    }
+          @media (max-width:768px){
+      .testimonial-section{
+        padding-bottom: 120px;
+      }
+    }
+    .testimonial-card {
+      background-color: rgba(255, 248, 232, 0.9);
+      border-radius: 10px;
+      padding: 30px;
+      margin: 15px;
+      color: #333;
+    }
+    .testimonial-text {
+      font-style: italic;
+      color: #990d35;
+      margin-bottom: 20px;
+    }
+    .testimonial-author {
+      font-weight: 600;
+      color: #990d35;
+    }
+        @media (max-width:768px){
+      .card_3{
+        margin-top: 75px;
+      } 
+    }
+        @media (max-width:768px){
+      .card_2{
+        margin-top: 45px;
+      } 
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 0;
+      background: url('computech.jpg');
+      background-color: #990d35;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+    }
+    .cta-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-family: serif;
+      margin-bottom: 20px;
+    }
+    
+    /* Gallery Preview */
+    .gallery-section {
+      padding: 80px 0;
+      background-color: #fff8e8;
+    }
+    .gallery-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+      border: 2px solid #990d35;
+    }
+    .gallery-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(153, 13, 53, 0.2);
+    }
+
+        /* Learning Environment Section */
+    .environment-section {
+      padding: 80px 0;
+      background-color: #990d35;
+      color: white;
+    }
+    .environment-item {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .environment-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #fff8e8;
+    }
+    .environment-title{
+      font-family: serif;
+    }
+   @media(min-width:992px) {
+     .OLE{
+      margin-top: 42px; 
+      font-family: sans-serif;
+        
+    }
+   }
+
+/* footer start */
+    footer {
+      margin: auto;
+      width: 94vw;
+      bottom: 0;
+      border-radius: 20px;
+      background-color: #990d35;
+      color: #fff;
+      padding: 40px 20px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .footer-section, .footer-bottom {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideFadeIn 0.6s ease forwards;
+    }
+    .footer-section:nth-of-type(2) { animation-delay: 0.3s; }
+    .footer-section:nth-of-type(3) { animation-delay: 0.6s; }
+    .footer-section:nth-of-type(4) { animation-delay: 0.9s; }
+    .footer-bottom { animation-delay: 1.2s; }
+    .footer-section h5 {
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .footer-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .social-logos a {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: logoFade 0.6s ease forwards;
+    }
+    .social-logos a:nth-child(1) { animation-delay: 1s; }
+    .social-logos a:nth-child(2) { animation-delay: 1.2s; }
+    .social-logos a:nth-child(3) { animation-delay: 1.4s; }
+    .social-logos img, .hero-logo {
+      width: 30px;
+      margin-right: 10px;
+      border-radius: 5px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .social-logos img:hover, .hero-logo:hover {
+      transform: scale(1.2) rotate(5deg);
+      box-shadow: 0 0 10px #fff;
+    }
+    /* .main-hero-logo{
+      width: 90px;
+      height: 150px;
+      margin-right: 10px;
+      border-radius: 5px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .main-hero-logo:hover{
+      transform: scale(1.2) rotate(5deg);
+      box-shadow: 0 0 10px #fff;
+    } */
+    @keyframes slideFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes logoFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid #fff8f8;
+      padding-top: 15px;
+      font-size: 15px;
+      color: #aaa;
+    }
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-section {
+        text-align: center;
+      }
+      .hero-logo {
+        width: 30px;
+        margin-bottom: 20px;
+      }
+    }
+    .animated-logo {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: logoFade 0.6s ease forwards;
+      animation-delay: 0.2s;
+    }
+    .footer_option{
+      text-align: center;
+      color: #fff8f8;
+    }
+    .footer_option:hover{
+      color: #990d35;
+       background-color: #fff8f8;
+       border-radius: 10px;
+       text-align: center;
+    }
+    .footer_link{
+       text-decoration: none;
+       color: #fff8f8;
+    }
+    .footer_link:hover{
+        color: #56051c;
+       background-color: #fff8f8;
+       border-radius: 7px;
+       
+    }
+    .h5{
+       text-align: center;
+    }
+/* footer end */
+
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+<div class="header-wrapper">
+  <div class="header-row">
+    <img src="compu.logo-removebg-preview.png" alt="Logo" class="logo-img"/>
+    <h6 class="header-text RPPANSARIji fs-4 fs-sm-5">
+     Computech Skills <br>Academy
+    </h6>
+    <button class="sidebar-toggle" id="toggleBtn">☰</button>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+  <ul class="options">
+     <li><a href="home.html">Home</a></li>
+    <li><a href="about_us.html">About us</a></li>
+    <li><a href="course.html">Courses</a></li>
+    <li><a href="enroll.html">Contact</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+
+  <div class="sidebar-img-container">
+  <img src="computech.png" alt="Decorative Image" class="sidebar-blur-img" style="object-fit: fill;"/>
+</div>
+ <!-- <h5>CSA LOSAL</h5> -->
+
+</div>
+
+<!-- BACKDROP -->
+<div id="backdrop" class="menu-backdrop"></div>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const backdrop = document.getElementById('backdrop');
+  const toggleBtn = document.getElementById('toggleBtn');
+
+  toggleBtn.addEventListener('click', () => {
+    const isActive = sidebar.classList.toggle('active');
+    backdrop.classList.toggle('active', isActive);
+  });
+
+  backdrop.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    backdrop.classList.remove('active');
+  });
+</script>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">Unlock Your Potential with Computech Skills Academy</h1>
+      <p class="hero-subtitle">Transform your career with our industry-relevant courses in web development, graphic design, digital marketing, and more.</p>
+      <a href="course.html" class="hero-btn btn">Explore Courses</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="container">
+      <h2 class="section-title">About Our Academy</h2>
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <p class="about-text">Computech Skills Academy is a premier institute dedicated to providing quality education in computer skills and digital technologies. Our mission is to empower students with practical knowledge that prepares them for the modern workforce.</p>
+          <p class="about-text">With experienced instructors, hands-on training, and industry-aligned curriculum, we help students develop the skills they need to succeed in today's competitive job market.</p>
+          <a href="enroll.html" class="btn btn-lg lrn_more" style="background-color: #990d35; color: white; ">Learn More</a>
+        </div>
+        <div class="col-lg-6 rounded-5">
+          <img src="computech.png" alt="Computech Skills Academy" class="img-fluid about-img mt-4 mt-lg-0 rounded-3 mb-5" style="height: 300px; width: 700px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonial-section">
+    <div class="container">
+      <h2 class="section-title text-white">What Our Students Say</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="testimonial-card card_1 h-100">
+            <p class="testimonial-text">"I learned Web Development at Computech skills Academy, and today, I’m a successful front-end developer! The course structure is excellent, covering HTML, CSS, JavaScript, and React in a hands-on way. The teachers’ support and real-world projects prepared me for the industry."</p>
+            <p class="testimonial-author">- Krishan kumar</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card card_2 h-100">
+            <p class="testimonial-text">"The Digital Marketing Course at Computech skills Academy gave me all the tools I need to succeed in this field. From SEO to Social Media Marketing, Google Ads to Content Marketing - I now feel fully prepared to build my career in digital marketing."</p>
+            <p class="testimonial-author">- Nirmal Swami </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card card_3 h-100">
+            <p class="testimonial-text">"If you want to build a career in Graphic Designing, Computech skills Academy is the best! I mastered Adobe Photoshop, Illustrator, and CorelDRAW here. The project-based approach helped me build a strong portfolio."</p>
+            <p class="testimonial-author">- Arpita Swami </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <h2 class="section-title">Why Choose Us</h2>
+      <div class="row">
+        <div class="col-md-6 col-lg-3 h-100">
+          <div class="feature-box Features_1">
+            <div class="feature-icon">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <h3 class="feature-title">Expert Instructors</h3>
+            <p class="default-text">Learn from industry professionals with years of practical experience.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 h-100 ">
+          <div class="feature-box Features_2">
+            <div class="feature-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3 class="feature-title">Hands-on Training</h3>
+            <p class="default-text">Practical, project-based learning to build real-world skills.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 h-100">
+          <div class="feature-box Features_3">
+            <div class="feature-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h3 class="feature-title">Career Support</h3>
+            <p class="default-text">Resume building, interview prep, and placement assistance.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 h-100 ">
+          <div class="feature-box Features_4">
+            <div class="feature-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <h3 class="feature-title">Certification</h3>
+            <p>Recognized certificates to boost your career prospects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section mt-3">
+    <div class="container">
+      <h2 class="cta-title">Ready to Start Your Learning Journey?</h2>
+      <p class="hero-subtitle">Join hundreds of students who have transformed their careers with our courses.</p>
+      <a href="enroll.html" class="hero-btn btn">Enroll Now</a>
+    </div>
+  </section>
+
+  <!-- Gallery Preview -->
+  <section class="gallery-section">
+    <div class="container">
+      <h2 class="section-title">Our Academy</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <img src="c1.jpg" alt="Classroom" class="img-fluid gallery-img">
+        </div>
+        <div class="col-md-4">
+          <img src="c3.jpg" alt="Computer Lab" class="img-fluid gallery-img">
+        </div>
+        <div class="col-md-4">
+          <img src="csa2.jpg" alt="Event" class="img-fluid gallery-img">
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="gallery.html" class="btn btn-lg lrn_more" style="background-color: #990d35; color: white;">View Gallery</a>
+      </div>
+    </div>
+  </section>
+
+    <!-- Learning Environment Section -->
+  <section class="environment-section">
+    <div class="container">
+      <h2 class="section-title text-white">Our Learning Environment</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="environment-item">
+            <div class="environment-icon">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <h3 class="environment-title">Modern Computer Lab</h3>
+            <p class="OLE">Well-equipped lab with latest hardware and software</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="environment-item">
+            <div class="environment-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 class="environment-title">Limited Batch Sizes</h3>
+            <p class="OLE">Personalized attention with limited students per batch</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="environment-item">
+            <div class="environment-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <h3 class="environment-title">Comprehensive Study Material</h3>
+            <p>Detailed notes and practical exercises provided</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><hr>
+
+
+  <!-- footer start -->
+      <footer style="margin-top:50px;">
+    <div class="container">
+      <div class="footer-container">
+        <div>
+          <img src="csa logo.png" alt="" style="width: 200px; height: 200px; border-radius: 25%; background-image: #fff8e8;" class="mx-1 hero-logo animated-logo">
+        </div>
+        <div class="footer-section mt-4 ml-5">
+          <h5>Quick Links</h5>
+          <ul>
+            <li class="footer_option"><a href="home.html" class="footer_link">Home</a></li>
+            <li class="footer_option"><a href="course.html" class="footer_link">Courses</a></li>
+            <li class="footer_option"><a href="gallery.html" class="footer_link">Gallery</a></li>
+            <li class="footer_option"><a href="enroll.html" class="footer_link">Enroll Now</a></li>
+          </ul>
+        </div>
+        <div class="footer-section mt-4">
+          <h5 class="h5">Contact us</h5>
+          <p class="footer_link">Email: computechskillsacademy@gmail.com</p>
+          <p class="footer_link">Phone: +91 8290735843 +91 8290735849</p>
+        </div>
+        <div class="footer-section mt-4">
+          <h5>Follow Us</h5>
+          <div class="social-logos">
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"   class="rounded-5"></a>
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+            <a href="#"><img src="lin.jpeg" alt="LinkedIn" class="hero-logo rounded-4" style="width: 32px; border: transparent;"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Computech Skills Academy. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+    <!-- footer end -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Sidebar toggle script (consistent with other pages)
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('backdrop');
+    const toggleBtn = document.getElementById('toggleBtn');
+
+    toggleBtn.addEventListener('click', () => {
+      const isActive = sidebar.classList.toggle('active');
+      backdrop.classList.toggle('active', isActive);
+    });
+
+    backdrop.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      backdrop.classList.remove('active');
+    });
+    
+    // Testimonial carousel
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    let currentTestimonial = 0;
+    
+    function rotateTestimonials() {
+      testimonialCards.forEach(card => card.style.display = 'none');
+      currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+      testimonialCards[currentTestimonial].style.display = 'block';
+    }
+    
+    // Initialize - show first testimonial only on mobile
+    if (window.innerWidth < 768) {
+      testimonialCards.forEach((card, index) => {
+        card.style.display = index === 0 ? 'block' : 'none';
+      });
+      setInterval(rotateTestimonials, 5000);
+    }
+  </script>
+</body>
+</html>
+
+
+

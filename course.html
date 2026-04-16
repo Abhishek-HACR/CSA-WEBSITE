@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computech Skill Acadeny</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="csa logo.png" type="image/x-icon">
+   <style>
+       body{
+           background-color: white;
+       }
+         /* HEADER */
+  .header-wrapper {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background-color: #fff8e8;
+    color: #990d35;
+    z-index: 1050;
+    padding: 10px 20px;
+    height: 140px;
+  }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-img {
+    width: 90px;
+  }
+
+    .header-text {
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1.2;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  /* TOGGLE BUTTON */
+  .sidebar-toggle {
+    background: white;
+    color: #990d35;
+    border: none;
+    font-size: 24px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  /* SIDEBAR DESKTOP */
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    right: -220px;
+    width: 220px;
+    height: calc(100vh - 60px);
+    background-color: #990d35;
+    color: white;
+    padding-top: 10px;
+    transition: right 0.3s ease;
+    z-index: 1040;
+    overflow-y: auto;
+  }
+
+  .sidebar.active {
+    right: 0;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .sidebar ul li a {
+    display: block;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+  }
+
+  .sidebar ul li a:hover {
+    background-color: #fff8e8;
+    color: #990d35;
+  }
+
+  /* BACKDROP */
+  .menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 1030;
+    display: none;
+  }
+
+  .menu-backdrop.active {
+    display: block;
+  }
+
+  /* MOBILE STYLES */
+  @media (max-width: 575.98px) {
+    .sidebar {
+      position: absolute;
+      top: 60px; /* header height */
+      left: 0;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      background-color: #990d35;
+      padding-top: 0;
+      transition: max-height 0.3s ease;
+      z-index: 1040; /* under header (1050) */
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    .sidebar.active {
+      max-height: 500px; /* adjust if needed */
+      padding-top: 80px;
+    }
+  }
+
+@media (max-width: 575.98px) {
+  .sidebar-img-container {
+    display: block;
+    margin-top: 0px;
+    /* padding: 0 15px 15px; */
+    text-align: center;
+  }
+
+  .sidebar-blur-img {
+    height: 45vh;
+    width: 98vw;
+    border-radius: 5px;
+    filter: blur(1px);
+    opacity: 0.85;
+    transition: 0.3s ease;
+  }
+
+  .sidebar-blur-img:hover {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+  @media (min-width: 576px) {
+  .sidebar-img-container {
+    margin-top: 5px;
+    /* padding: 0 15px 15px; */
+    text-align: center;
+    object-fit: cover;
+  }
+
+  .sidebar-blur-img {
+    height: 45vh;
+    width: 35vw;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    filter: blur(1px);
+    opacity: 0.85;
+    transition: 0.3s ease;
+  }
+
+  .sidebar-blur-img:hover {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  .sidebar.active{
+     padding-top: 80px;
+  }
+}
+
+.options{
+        font-size:20px;
+        color:#fff8e8;
+        top: 0;
+       }
+ .options:hover{
+         text-shadow: 2px 2px 2px  #D4AF37 ;
+ } 
+
+/*  */
+
+.head{
+    background-color: #fff8e8;
+    font-size: 30px;
+}
+.RPPANSARIji{
+       color: #990d35;
+       font-size: large;
+       font-weight: 700;
+}
+.card-a{
+      text-decoration: none;
+}
+.card-a:hover{
+       color: #20040c;
+}
+.csaposter{
+      
+}
+@media (min-width: 577px) {
+    #csaposter {
+        border-bottom-left-radius: 70px;
+    }
+}
+/* @media (min-width: 320px) and (max-width: 576px) {
+    #csaposter {
+        border-bottom-left-radius: 0px;
+    }
+}
+@media (min-width: 384px) and (max-width: 576px) {
+    #csaposter {
+        border-bottom-left-radius: 0px;
+    }
+    .down{
+      height: 250px;
+      width: 98vw;
+    }
+    .getdown{
+      height: 200px;
+      
+    }
+     .strok{
+        font-size:20px;
+        color:#fff8e8;
+        text-shadow: 2px 2px 2px  #D4AF37 ;
+        transition: text-shadow 0.3s ease ;
+        padding-top: 35px;
+       }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+    .down{
+      height: 250px;
+      width: 100vw;
+    }
+    .getdown{
+      height: 200px;
+    }
+}
+@media (min-width: 248px) and (max-width: 383.98px) {
+    #csaposter {
+        border-bottom-left-radius: 0px;
+    }
+    .down{
+      height: 400px;
+      width: 100vw;
+    }
+    .getdown{
+      height: 210px;
+      bottom: 220px;
+    }
+}
+@media (min-width: 150px) and (max-width: 247.98px) {
+    #csaposter {
+        border-bottom-left-radius: 0px;
+    }
+    .down{
+      height: 400px;
+      width: 100vw;
+    }
+    .getdown{
+      height: 210px;
+      bottom: 250px;
+    }
+}
+.down{
+    height: 150px;
+    width: 90vw;
+    left: 0;
+    right:0;
+    border-radius: 15px;
+    animation: floatingdown 1s ease-in forwards;
+    background-color: #990d35;
+    margin-top: 160px;
+}     
+.down:hover{
+      box-shadow: 0 10px 20px rgba(153, 13, 53, 0.3);
+}
+
+.getdown{
+    top: 250;
+    position: absolute;
+    width: 95vw;
+    border-radius: 15px;
+    left: 0;
+    right:0;
+} */
+
+   .down {
+            height: auto;
+            min-height: 150px;
+            width: 90%;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #990d35 0%, #7a0a2a 100%);
+            margin: 0 auto;
+            padding: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(153, 13, 53, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 150px;
+        }
+        
+        .down:hover {
+            box-shadow: 0 15px 30px rgba(153, 13, 53, 0.4);
+            transform: translateY(-5px);
+        }
+        
+        .strok {
+            font-size: 3rem;
+            color: #fff8e8;
+            font-family: serif;
+            text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.8);
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 20px 0;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .strok i {
+            margin-right: 15px;
+            color: #D4AF37;
+        }
+         .hero-subtitle {
+         font-size: 1.3rem;
+         /* margin-bottom: 30px; */
+         max-width: 700px;
+         /* margin-left: auto;
+         margin-right: auto; */
+         }
+ /* @keyframes floatingdown {
+      0% {opacity: 0; transform: translateY(-20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    } */
+
+  /* .strok{
+        font-size:40px;
+        color:#fff8e8;
+        font-family:;
+        text-shadow: 2px 2px 2px  #D4AF37 ;
+        transition: text-shadow 0.3s ease ;
+        padding-top: 53px;
+       } */
+       /* .xxxgxf{
+          
+       } */
+
+       .liftup{
+          margin: auto;
+          width: 95vw;
+          top: 440px;
+          bottom: 0px;
+          right: 0;
+          left: 0;
+          position: absolute;
+          will-change: transform;
+          backface-visibility: hidden;
+          animation: moveup 1.5s ease 0.2s forwards;
+       }
+ 
+     @media (min-width: 320px) and (max-width: 576px){
+          .course_card{
+            margin: auto;   
+            width: 70vw;
+            /* margin-left: 57px; */
+          }
+      }
+      
+/*  */
+    
+  .course_card {
+      background-color: #fff8e8;
+      border: 2px solid #990d35;
+      border-radius: 10px;
+      padding: 20px;
+      height: 50vh;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .course_card:hover{
+      transform: scale(1.03);
+      box-shadow: 0 10px 20px rgba(153, 13, 53, 0.3);
+      border: 1.5px solid #D4AF37;
+    }
+    @media(min-width:1153px) {
+    .course_DM{
+      word-spacing: 10px;
+    }
+    }
+    .course-title {
+      color: #990d35;
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-family: serif;
+    }   
+    .course-btn {
+      font-family: serif;
+      background-color: #990d35;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      text-decoration:none;
+      
+    }
+    .course-btn:hover {
+      background-color: #7a0a2c;
+      color: white;
+    }
+     @media(min-width:150px) and (max-width:576px){
+      .course_card {
+        height: 250px;
+      }
+    }
+    /* @media(min-width:150px) and (max-width:319.98px){
+      .course_card {
+        height: 40vh;
+      }
+    }
+      @media(min-width:320px) and (max-width:332.98px){
+      .course_card {
+        height: 45vh;
+      }
+    }
+      @media(min-width:333px) and (max-width:575.98px){
+      .course_card {
+        height: 40vh;
+      }
+    } */
+      @media(min-width:576px) and (max-width:768.98px){
+      .course_card {
+        height: 50vh;
+      }
+    }
+      @media(min-width:769px) and (max-width:992px){
+      .course_card {
+        height: 40vh;
+      }
+    }
+
+ /*  */
+        .p{
+            font-size: 18px;
+            letter-spacing: 0.5px;
+            word-spacing: 0.8px;
+            font-weight: 400;
+        }
+       .mn{
+          border: 4px solid #fff8e8;
+          margin-top: 50px;
+         
+       }
+       /* .lgpic{
+              width: 200px;
+       } */
+       @media (min-width: 320px) and (max-width: 767px){
+          .ftr{
+                height: 90vh;
+              position: absolute;
+               right: 0;
+               left: 0;
+               width: 90vw;
+          }
+          .ftr_image{
+               height: 40vh;
+                border-bottom: 4px solid #990d35;
+          }
+          .lgpic{
+            width:30vh ;
+            margin-top:2px;
+          }
+          .ftr_list{
+            width: 40vw;
+            margin: auto;
+            /* margin-left: -85px; */
+          }
+           /* .ftr_list_h3{
+               margin-left: 60px;
+           }*/
+           .ftr_list_p{
+               margin-left: -30px;
+           } 
+           .last_ftr{
+                height: 100px; 
+                background-color:#990d35;
+                margin-top:1000px;
+           }
+       }
+       @media (min-width: 767px) {
+          .ftr{
+              height: 60vh;
+              position: absolute;
+          }
+          .ftr_image{
+              height: 60vh;
+              border-right: 4px solid #990d35;
+              
+          }
+          .lgpic{
+           height: 40vh;
+           padding-top:15px;
+           padding-left: 45px;
+           margin-bottom: 2px;
+          }
+          .ftr_list{
+             width:70vw ;
+             margin-top: 60px;
+          }
+          .last_ftr{
+             height: 100px; 
+            background-color:#990d35;
+            margin-top: 285px;
+          }
+       }
+
+
+       .ftr{
+          right: 0;
+          left: 0;
+          width: 80vw;
+          /* height: 40vh;  */
+          background-color: #fff8e8;
+          position: absolute;
+       }
+       .last_ftr{
+          height: 100px; 
+          background-color:#990d35;
+          margin-top: 285px;
+       }
+        .ftr_list_h3{
+            color: #990d35;
+            font-weight: 700;
+            font-size: 34px;
+            font-family: playfair;
+        }
+        .ftr_list_p{
+            color: #990d35;
+            font-weight: 600;
+            font-size: 20px;
+        }
+        /* footer start */
+         footer {
+      margin: auto;
+      width: 94vw;
+      bottom: 0;
+      border-radius: 20px;
+      background-color: #990d35;
+      color: #fff;
+      padding: 40px 20px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .footer-section, .footer-bottom {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideFadeIn 0.6s ease forwards;
+    }
+    .footer-section:nth-of-type(2) { animation-delay: 0.3s; }
+    .footer-section:nth-of-type(3) { animation-delay: 0.6s; }
+    .footer-section:nth-of-type(4) { animation-delay: 0.9s; }
+    .footer-bottom { animation-delay: 1.2s; }
+    .footer-section h5 {
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .footer-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    /* .footer-section ul li {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideFadeIn 0.6s ease forwards;
+    } */
+    /* .footer-section ul li:nth-child(1) { animation-delay: 0.4s; }
+    .footer-section ul li:nth-child(2) { animation-delay: 0.5s; }
+    .footer-section ul li:nth-child(3) { animation-delay: 0.6s; }
+    .footer-section ul li:nth-child(4) { animation-delay: 0.7s; }
+    .footer-section ul li a {
+      text-decoration: none;
+      color: #bfbfbf;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.3s ease;
+    } */
+    /* .footer-section ul li a:hover {
+      color: #fff;
+    } */
+    .social-logos a {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: logoFade 0.6s ease forwards;
+    }
+    .social-logos a:nth-child(1) { animation-delay: 1s; }
+    .social-logos a:nth-child(2) { animation-delay: 1.2s; }
+    .social-logos a:nth-child(3) { animation-delay: 1.4s; }
+    .social-logos img, .hero-logo {
+      width: 30px;
+      margin-right: 10px;
+      border-radius: 5px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .social-logos img:hover, .hero-logo:hover {
+      transform: scale(1.2) rotate(5deg);
+      box-shadow: 0 0 10px #fff;
+    }
+    @keyframes slideFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes logoFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid #fff8f8;
+      padding-top: 15px;
+      font-size: 15px;
+      color: #aaa;
+    }
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-section {
+        text-align: center;
+      }
+      .hero-logo {
+        margin-bottom: 20px;
+      }
+    }
+    .animated-logo {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: logoFade 0.6s ease forwards;
+      animation-delay: 0.2s;
+    }
+    .footer_option{
+      text-align: center;
+      color: #fff8f8;
+    }
+    .footer_option:hover{
+      color: #990d35;
+       background-color: #fff8f8;
+       border-radius: 10px;
+       text-align: center;
+    }
+    .footer_link{
+       text-decoration: none;
+       color: #fff8f8;
+    }
+    .footer_link:hover{
+        color: #56051c;
+       background-color: #fff8f8;
+       border-radius: 7px;
+       
+    }
+    .h5{
+      margin-left: -0%;
+    }
+        /* footer end */
+   </style>
+</head>
+<body>
+        
+    <!-- HEADER -->
+<div class="header-wrapper">
+  <div class="header-row">
+    <img src="compu.logo-removebg-preview.png" alt="Logo" class="logo-img"/>
+    <h6 class="header-text RPPANSARIji fs-4 fs-sm-5">
+      Computech Skills <br>Academy
+    </h6>
+    <button class="sidebar-toggle" id="toggleBtn">☰</button>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+  <ul class="options">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about_us.html">About us</a></li>
+    <li><a href="course.html">Courses</a></li>
+    <li><a href="enroll.html">Contact</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+
+  <div class="sidebar-img-container">
+  <img src="computech.png" alt="Decorative Image" class="sidebar-blur-img" style="object-fit: fill;"/>
+</div>
+ <!-- <h5>CSA LOSAL</h5> -->
+
+</div>
+
+<!-- BACKDROP -->
+<div id="backdrop" class="menu-backdrop"></div>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const backdrop = document.getElementById('backdrop');
+  const toggleBtn = document.getElementById('toggleBtn');
+
+  toggleBtn.addEventListener('click', () => {
+    const isActive = sidebar.classList.toggle('active');
+    backdrop.classList.toggle('active', isActive);
+  });
+
+  backdrop.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    backdrop.classList.remove('active');
+  });
+</script>
+  
+
+
+<!-- HEADER end -->
+
+    <!-- <header>
+     <div class="container-fluid head">
+        <div class="row">
+        <img src="csa logo.png" style="width: 90px; " class=" justify-content-start my-2">
+        <h6 class="col justify-content-center pt-3 RPPANSARIji "> Computech Skills <br>Academy</h6>
+         <!-- <div><i class="fa-solid fa-bars-staggered"></i></div> -->
+          <!-- <span class="navbar-toggler-icon"></span>
+        </div>     
+    </div>
+    </header> -->
+    <!-- Explore Our Learning Programs -->
+         <!-- <div class="container down">
+          <div class="container-fluid text-center getdown">
+               <h1 class="strok"><cite> Explore Our Courses</cite></h1>
+             </div>
+          </div>  -->
+          <div class="col-8offset-1 courses-section">
+        <div class="down">
+            <div class="text-center">
+                <!-- <h1 class="strok"><i class="fas fa-graduation-cap"></i><cite>Explore Our Courses</cite></h1> -->
+                <h1 class="strok">Explore Our Courses</h1>
+                <p class="text-light hero-subtitle">Discover a wide range of programs designed to help you achieve your goals</p></div>
+        </div>
+    </div>
+          <!-- pustakalya  image -->
+        <!-- <img src="computech.png" class="img-fluid mt-1 mb-5 " id="csaposter"> -->
+       
+    <!--courses card -->
+   <div class="coantainer liftup">
+      <div class="row d-flex justify-content-center ">
+        <!-- web -->
+       <div class="col-sm-5 col-md-5 col-lg-3 mb-3 ">
+         <div class="course_card">
+            <div class="course-body">
+              <h3 class="course-title">Web Development</h3>
+              <p class="course_p1 x">Learn to build modern sites
+                                      Create responsive pages fast
+                                      Use HTML, CSS, JavaScript
+                                      Design better with more tools</p>
+             <center><a href="web-page.html" class="course-btn my-3">View Details</a></center> 
+            </div>
+          </div> 
+       </div>
+        
+       <!-- grafic -->
+         <div class="col-sm-5 col-md-5 col-lg-3 mb-3 " >
+         <div class="course_card">
+            <div class="course-body">
+              <h3 class="course-title">Graphic Designing</h3>
+              <p class="course_p2 ">Master design with tools
+                                    Use Photoshop, Illustrator
+                                    Create graphics that pop
+                                    Make stunning visuals fast</p>
+              <center> <a href="graffic-page.html" class="course-btn my-3">View Details</a></center>
+            </div>
+          </div>
+        </div>
+        <!-- </div>
+     
+      <div class="row d-flex justify-content-center ">  -->
+        <!-- digital -->
+        <div class="col-sm-5 col-md-5 col-lg-3 mb-3">
+          <div class="course_card">
+            <div class="course-body">
+              <h3 class="course-title course_DM">Digital Marketing</h3>
+              <p class="course_p3 ">Learn SEO, grow online fast
+                                    Use social media, reach more
+                                    Email users, build strong trust
+                                    Boost traffic with smart tricks</p>
+              <center> <a href="digital-mark-page.html" class="course-btn my-3">View Details</a></center>
+            </div>
+          </div>
+        </div>
+         
+       <!-- tally -->
+         <div class="col-sm-5 col-md-5 col-lg-3 ">
+               <div class="course_card">
+            <div class="course-body">
+                <h3 class="course-title">Tally Prime</h3>
+                <p class="course_p4">Master accounting, learn with ease
+                                      Use software for GST bills
+                                      Manage business, track all cash
+                                      Grow finance with smart tools</p>
+                <center><a href="tally-page.html" class="course-btn my-3">View Details</a></center>
+            </div>
+          </div>
+       </div>
+            <!--  -->
+    </div>
+
+  <!-- footer start -->
+    <footer  style="margin-top: 100px;">
+    <div class="container">
+      <div class="footer-container">
+        <div>
+          <img src="csa logo.png" alt="" style="height: 200px; width: 200px; border-radius: 25%;" class="mt-2 hero-logo animated-logo">
+        </div>
+        <div class="footer-section mt-4 ml-5">
+          <h5>Quick Links</h5>
+          <ul>
+            <li class="footer_option"><a href="home.html" class="footer_link">Home</a></li>
+            <li class="footer_option"><a href="course.html" class="footer_link">Courses</a></li>
+            <li class="footer_option"><a href="gallery.html" class="footer_link">Gallery</a></li>
+            <li class="footer_option"><a href="enroll.html" class="footer_link">Enroll Now</a></li>
+          </ul>
+        </div>
+        <div class="footer-section mt-4">
+          <h5 class="h5">Contact us</h5>
+         <p class="footer_link">Email: computechskillsacademy@gmail.com</p>
+          <p class="footer_link">Phone: +91 8290735843 +91 8290735849</p>
+        </div>
+        <div class="footer-section mt-4">
+          <h5>Follow Us</h5>
+          <div class="social-logos">
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"   class="rounded-5"></a>
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+            <a href="#"><img src="lin.jpeg" alt="LinkedIn" class="hero-logo rounded-4" style="width: 32px; border: transparent;"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Computech Skills Academy. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+   <!-- footer end -->
+</body>
+</html>

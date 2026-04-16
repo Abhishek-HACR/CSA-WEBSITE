@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Computech Skill Acadeny</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="csa logo.png" type="image/x-icon">
+  <style>
+    body {
+        background-color: white;
+      /* background: linear-gradient(to right, #990d35,  #990d35, #fff8e8); */
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px 15px;
+      color: white;
+    }
+    .glass-section {
+      background: rgba(255,255,255,0.1);
+      background-color: #990d35;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: transform 0.3s ease;
+    }
+    .glass-section:hover {
+      transform: scale(1.01);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 2px  #D4AF37 ;
+    }
+   .section-title {
+      /* color: #fff; */
+      color: white;
+      font-size: 28px;
+      font-family: serif;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #fff8e8;
+      display: inline-block;
+      padding-bottom: 5px;
+      text-shadow: none;
+    }
+    .hero {
+      text-align: center;
+      animation: fadeInDown 1s ease;
+      margin-bottom: 40px;
+      margin-top: 110px;
+    }
+   .hero h1 {
+      font-size: 42px;
+      font-family: serif;
+      color: #990d35;
+      text-shadow: 2px 2px 2px  #D4AF37 ;
+    }
+    .hero p {
+       font-size: 1.3rem;
+       color: #990d35;
+       text-shadow: 2px 2px 2px  #D4AF37 ;
+    }
+    /* @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-60px); }
+      to { opacity: 1; transform: translateY(0); }
+    } */
+    .btn-enroll {
+       height: 8vh;
+       width: 240px;
+       margin: auto;
+      right: 0;
+      left: 0;
+      background-color:  rgb(255, 239, 18);
+      color: #990d35;
+      border: none;
+      font-size:px;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: 0.3s;
+      border-bottom: 3px solid black;
+    }
+    .btn-enroll:hover {
+      background-color: #990d35;
+      color: #fff;
+      border: 1px solid white;
+      text-shadow: 2px 2px 2px  #D4AF37 ;
+      border-bottom: 3px solid black;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+      
+    .lrn_more{
+      font-family: serif;
+      display: flex;
+      justify-content: center;
+      width: 200px;
+      transition: all 0.3s ease;
+    }
+    .lrn_more:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      background-color: #5a061e;
+      color:white;
+      
+    }
+   
+         /* HEADER */
+  .header-wrapper {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background-color: #fff8e8;
+    color: #990d35;
+    z-index: 1050;
+    padding: 10px 20px;
+    height: 140px;
+  }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-img {
+    width: 90px;
+  }
+
+    .header-text {
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1.2;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  /* TOGGLE BUTTON */
+  .sidebar-toggle {
+    background: white;
+    color: #990d35;
+    border: none;
+    font-size: 24px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  /* SIDEBAR DESKTOP */
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    right: -220px;
+    width: 220px;
+    height: calc(100vh - 60px);
+    background-color: #990d35;
+    color: white;
+    padding-top: 10px;
+    transition: right 0.3s ease;
+    z-index: 1040;
+    overflow-y: auto;
+  }
+
+  .sidebar.active {
+    right: 0;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .sidebar ul li a {
+    display: block;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+  }
+
+  .sidebar ul li a:hover {
+    background-color: #fff8e8;
+    color: #990d35;
+  }
+
+  /* BACKDROP */
+  .menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 1030;
+    display: none;
+  }
+
+  .menu-backdrop.active {
+    display: block;
+  }
+
+  /* MOBILE STYLES */
+  @media (max-width: 575.98px) {
+    .sidebar {
+      position: absolute;
+      top: 60px; /* header height */
+      left: 0;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      background-color: #990d35;
+      padding-top: 0;
+      transition: max-height 0.3s ease;
+      z-index: 1040; /* under header (1050) */
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    .sidebar.active {
+      max-height: 500px; /* adjust if needed */
+      padding-top: 80px;
+    }
+  }
+
+@media (max-width: 575.98px) {
+  .sidebar-img-container {
+    display: block;
+    margin-top: 0px;
+    /* padding: 0 15px 15px; */
+    text-align: center;
+  }
+
+  .sidebar-blur-img {
+    height: 45vh;
+    width: 98vw;
+    border-radius: 5px;
+    filter: blur(1px);
+    opacity: 0.85;
+    transition: 0.3s ease;
+  }
+
+  .sidebar-blur-img:hover {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+  @media (min-width: 576px) {
+  .sidebar-img-container {
+    margin-top: 5px;
+    /* padding: 0 15px 15px; */
+    text-align: center;
+    object-fit: cover;
+  }
+
+  .sidebar-blur-img {
+    height: 45vh;
+    width: 35vw;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    filter: blur(1px);
+    opacity: 0.85;
+    transition: 0.3s ease;
+  }
+
+  .sidebar-blur-img:hover {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  .sidebar.active{
+     padding-top: 80px;
+  }
+}
+
+.options{
+        font-size:20px;
+        color:#fff8e8;
+        top: 0;
+       }
+ .options:hover{
+         text-shadow: 2px 2px 2px  #D4AF37 ;
+ } 
+
+
+ /* footer start */
+     footer {
+      margin: auto;
+      width: 94vw;
+      bottom: 0;
+      border-radius: 20px;
+      background-color: #990d35;
+      color: #fff;
+      padding: 40px 20px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .footer-section, .footer-bottom {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideFadeIn 0.6s ease forwards;
+    }
+    .footer-section:nth-of-type(2) { animation-delay: 0.3s; }
+    .footer-section:nth-of-type(3) { animation-delay: 0.6s; }
+    .footer-section:nth-of-type(4) { animation-delay: 0.9s; }
+    .footer-bottom { animation-delay: 1.2s; }
+    .footer-section h5 {
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .footer-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    /* .footer-section ul li {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideFadeIn 0.6s ease forwards;
+    } */
+    /* .footer-section ul li:nth-child(1) { animation-delay: 0.4s; }
+    .footer-section ul li:nth-child(2) { animation-delay: 0.5s; }
+    .footer-section ul li:nth-child(3) { animation-delay: 0.6s; }
+    .footer-section ul li:nth-child(4) { animation-delay: 0.7s; }
+    .footer-section ul li a {
+      text-decoration: none;
+      color: #bfbfbf;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.3s ease;
+    } */
+    /* .footer-section ul li a:hover {
+      color: #fff;
+    } */
+    .social-logos a {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: logoFade 0.6s ease forwards;
+    }
+    .social-logos a:nth-child(1) { animation-delay: 1s; }
+    .social-logos a:nth-child(2) { animation-delay: 1.2s; }
+    .social-logos a:nth-child(3) { animation-delay: 1.4s; }
+    .social-logos img, .hero-logo {
+      width: 30px;
+      margin-right: 10px;
+      border-radius: 5px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .social-logos img:hover, .hero-logo:hover {
+      transform: scale(1.2) rotate(5deg);
+      box-shadow: 0 0 10px #fff;
+    }
+    @keyframes slideFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes logoFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid #fff8f8;
+      padding-top: 15px;
+      font-size: 15px;
+      color: #aaa;
+    }
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-section {
+        text-align: center;
+      }
+      .hero-logo {
+        margin-bottom: 20px;
+      }
+    }
+    .animated-logo {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: logoFade 0.6s ease forwards;
+      animation-delay: 0.2s;
+    }
+    .footer_option{
+      text-align: center;
+      color: #fff8f8;
+    }
+    .footer_option:hover{
+      color: #990d35;
+       background-color: #fff8f8;
+       border-radius: 10px;
+       text-align: center;
+    }
+    .footer_link{
+       text-decoration: none;
+       color: #fff8f8;
+    }
+    .footer_link:hover{
+        color: #56051c;
+       background-color: #fff8f8;
+       border-radius: 7px;
+       
+    }
+    .h5{
+       text-align: center;
+    }
+ /* footer end */
+  </style>
+</head>
+<body>
+  <!-- header start -->
+  
+         <div class="header-wrapper">
+  <div class="header-row">
+    <img src="compu.logo-removebg-preview.png" alt="Logo" class="logo-img" />
+    <h6 class="header-text RPPANSARIji fs-4 fs-sm-5">
+      Computech Skills <br>Academy
+    </h6>
+    <button class="sidebar-toggle" id="toggleBtn">☰</button>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+  <ul class="options">
+     <li><a href="home.html">Home</a></li>
+    <li><a href="about_us.html">About us</a></li>
+    <li><a href="course.html">Courses</a></li>
+    <li><a href="enroll.html">Contact</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+
+  <div class="sidebar-img-container">
+  <img src="computech.png" alt="Decorative Image" class="sidebar-blur-img" style="object-fit: fill;"/>
+</div>
+ <!-- <h5>CSA LOSAL</h5> -->
+
+</div>
+
+<!-- BACKDROP -->
+<div id="backdrop" class="menu-backdrop"></div>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const backdrop = document.getElementById('backdrop');
+  const toggleBtn = document.getElementById('toggleBtn');
+
+  toggleBtn.addEventListener('click', () => {
+    const isActive = sidebar.classList.toggle('active');
+    backdrop.classList.toggle('active', isActive);
+  });
+
+  backdrop.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    backdrop.classList.remove('active');
+  });
+</script>
+<!-- HEADER end -->
+
+    
+  <!-- Hero Section -->
+  <!-- <div class="hero shadow-text">
+    <h1>Digital Marketing</h1>
+    <p>Smart Marketing for a Connected World.</p>
+  </div> -->
+
+  <!-- Overview -->
+  <!-- <div class="container">
+    <div class="glass-section">
+      <h2 class="section-title">What You'll Learn</h2>
+      <ul>
+        <li>Digital Strategy Planning</li>
+        <li>Search Engine Optimization (SEO) </li>
+        <li>Social Media Marketing</li>
+        <li>Content Creation & Copywriting</li>
+        <li>Email Marketing & Automation</li>
+      </ul>
+    </div> -->
+
+    <!-- Modules -->
+    <!-- <div class="glass-section">
+      <h2 class="section-title"> Modules</h2>
+      <ul>
+        <li>Introduction to Digital Marketing</li>
+        <li>Content Marketing Strategy</li>
+        <li>Video Marketing & YouTube Optimization</li>
+        <li>E-Commerce Marketing</li>
+        <li>Influencer & Affiliate Marketing</li>
+      </ul>
+    </div> -->
+
+    <!-- Benefits -->
+    <!-- <div class="glass-section">
+      <h2 class="section-title"> Benefits</h2>
+      <ul>
+        <li>Flexible and Scalable Campaigns</li>
+        <li>Higher Engagement & Personalization</li>
+        <li>Earn a completion certificate</li>
+        <li>Get placement-ready skills</li>
+        <li>interview prep class:<br><ul><li>Soft Skills + Mock interviews</li></ul></li>
+        <li>Portfolio Guidance</li>
+      </ul>
+    </div> -->
+
+
+    <!-- Hero Section -->
+<div class="hero">
+  <h1>Digital Marketing</h1>
+  <p>Master Online Growth Strategies</p>
+</div>
+
+<!-- Overview -->
+<div class="container">
+  <div class="glass-section">
+    <h2 class="section-title">What You'll Learn</h2>
+    <ul>
+      <li>Fundamentals of Digital Marketing</li>
+      <li>Drive traffic, leads & sales online</li>
+      <li>Master SEO, Social Media & Ads <br> to grow businesses</li>
+    </ul>
+  </div>
+
+  <!-- Modules -->
+  <div class="glass-section">
+    <h2 class="section-title">Modules</h2>
+    <ul>
+      <li><b>CORE DIGITAL MARKETING</b></li>
+      <ul>
+        <li>SEO, Google Analytics, Content Marketing</li>
+        <li>Social Media Marketing (Facebook, Instagram)</li>
+      </ul>
+      <li><b>ADVERTISING & AUTOMATION</b></li>
+      <ul>
+         <li>Google/FB Ads, Email Marketing</li>
+         <li>Marketing Funnels, Conversion Optimization</li>
+      </ul>
+    </ul>
+  </div>
+
+  <!-- Benefits -->
+  <div class="glass-section">
+    <h2 class="section-title">Benefits</h2>
+    <ul>
+      <li>Run real campaigns for businesses</li>
+      <li>Get certified in Digital Marketing</li>
+      <li>Build in-demand freelancing skills</li>
+      <li>Career support:<br>Client pitching + Portfolio building</li>
+      <li>Access to tools (Google Ads, Meta Business)</li>
+    </ul>
+  </div>
+</div>
+
+    <!-- CTA -->
+    <div class=" container d-flex align-items-center mt-4 ">
+      <a href="enroll.html" class="btn btn-lg lrn_more" style="background-color: #990d35; color: white; ">Enroll Now</a>
+    </div>
+  </div>
+
+<!-- footer start -->
+   <footer style="margin-top: 100px;">
+    <div class="container">
+      <div class="footer-container">
+        <div>
+          <img src="csa logo.png" alt="" style="height: 200px; width: 200px; border-radius: 25%;" class="mt-2 hero-logo animated-logo">
+        </div>
+        <div class="footer-section mt-4 ml-5">
+          <h5>Quick Links</h5>
+          <ul>
+            <li class="footer_option"><a href="home.html" class="footer_link">Home</a></li>
+            <li class="footer_option"><a href="course.html" class="footer_link">Courses</a></li>
+            <li class="footer_option"><a href="gallery.html" class="footer_link">Gallery</a></li>
+            <li class="footer_option"><a href="enroll.html" class="footer_link">Enroll Now</a></li>
+          </ul>
+        </div>
+        <div class="footer-section mt-4">
+          <h5 class="h5">Contact us</h5>
+         <p class="footer_link">Email: computechskillsacademy@gmail.com</p>
+         <p class="footer_link">Phone: +91 8290735843 +91 8290735849</p>
+        </div>
+        <div class="footer-section mt-4">
+          <h5>Follow Us</h5>
+          <div class="social-logos">
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"   class="rounded-5"></a>
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+            <a href="#"><img src="lin.jpeg" alt="LinkedIn" class="hero-logo rounded-4" style="width: 32px; border: transparent;"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Computech Skills Academy. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+<!-- footer end -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
